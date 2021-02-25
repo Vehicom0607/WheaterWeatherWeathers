@@ -1,10 +1,10 @@
 import React from "react";
 import {Nav, Navbar} from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap-grid.min.css'
+import classes from './Navbar.module.css'
 
 const TopNavbar = () => {
     return (
-        <Navbar bg='light' expand="lg">
+        <Navbar className={classes.Navbar} variant="dark" expand="lg">
             <Navbar.Brand>Whether Weather</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

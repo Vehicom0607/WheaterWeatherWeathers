@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../store/actions'
-
+import LocationDisplay from "../Components/UI/LocationDisplay/LocationDisplay";
+import {Container} from "react-bootstrap";
+import WeatherDisplay from "../Components/UI/WeatherDisplay/WeatherDisplay";
 class Display extends Component {
 
 
@@ -30,15 +32,18 @@ class Display extends Component {
 
     render() {
         return (
-            <div>
-
-            </div>
+            <Container>
+                <LocationDisplay />
+                <WeatherDisplay />
+            </Container>
         );
     }
 }
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        weather: state.weather,
+    };
 }
 
 function mapDispatchToProps(dispatch) {

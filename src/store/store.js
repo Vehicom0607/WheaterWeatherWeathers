@@ -1,5 +1,8 @@
 const initialStore = {
-    pog: false
+    timezone: null,
+    weather: null,
+    loading: false,
+    error: null
 }
 
 export default initialStore
