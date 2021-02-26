@@ -6,8 +6,11 @@ const getBackground = (weather) => {
     switch(weather) {
         case "Clouds":
             return "#b5bbca"
+        case "Hail":
         case "Rain":
             return "#4d73da"
+        case "Snow":
+            return "#d6d6d6"
         default:
             return ""
     }
@@ -27,25 +30,24 @@ const WeatherDisplayCard = props => {
     bg = getBackground(props.weather[0].main)
 
     console.log(props)
-    console.log(bg)
 
     return (
         <Col>
-            <Card className="mb-3">
-                <Card.Header className="text-center">
+            <Card className="mb-3 text-center" style={{backgroundColor: bg}}>
+                <Card.Header >
                     {day}
                 </Card.Header>
-                <Card.Body className={"text-center"} style={{backgroundColor: bg}}>
+                <Card.Body >
                     <Card.Text className={classes.tempDisplay}>
-                        {props.temp.day} C
+                        {Math.round(props.temp.day)} C
                     </Card.Text>
                         <Card.Text className={classes.minMaxDisplay}>
-                            {props.temp.min} C - {props.temp.max} C
+                            High: {Math.round(props.temp.min)}C Low: {Math.round(props.temp.max)}C
                         </Card.Text>
                 </Card.Body>
                 <hr />
                 <Card.Body>
-                    pog
+                    Weather: {props.weather[0].main}
                 </Card.Body>
             </Card>
         </Col>

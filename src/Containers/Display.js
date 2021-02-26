@@ -13,7 +13,7 @@ class Display extends Component {
                 .query({ name: "geolocation" })
                 .then(result => {
                     if (result.state === "granted") {
-                        this.props.setWeather()
+                        this.props.setWeather(this.props.unit)
                     } else if (result.state === "prompt") {
                         alert('Please allow location use, Reload the page once you have done so.')
                     } else if (result.state === "denied") {
@@ -43,12 +43,13 @@ class Display extends Component {
 function mapStateToProps(state) {
     return {
         weather: state.weather,
+        unit: state.unit
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        setWeather: () => dispatch(actions.setWeather())
+        setWeather: (unit) => dispatch(actions.setWeather(unit))
     };
 }
 

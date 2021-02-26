@@ -27,6 +27,7 @@ const WeatherDisplay = props => {
 const mapStateToProps = (state) => {
     return {
         weather: state.weather
+
     }
 }
 
