@@ -9,8 +9,8 @@ const LocationDisplay = props => {
         <React.Fragment>
                 <Jumbotron className={classes.Jumbotron + ' text-center mt-5'}>
                     {props.timezone ? <h1>You're in: {props.timezone}</h1>: <h1>Cannot load data. Please make sure location is enabled.</h1>}
-                    <Button onClick={() => props.reloadData(props.unit)} variant="secondary" className="d-inline-block px-3">Reload Data</Button>
-                    <Button onClick={() => props.changeUnits(props.unit)} variant="secondary" className="d-inline-block px-3">Change F/C</Button>
+                    <Button onClick={() => props.reloadData(props.unit)} variant="secondary" className="d-inline mx-3">Reload Data</Button>
+                    <Button onClick={() => props.changeUnits(props.unit)} variant="secondary" className="d-inline mx-3">Change F/C</Button>
                 </Jumbotron>
         </React.Fragment>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Col} from "react-bootstrap";
 import classes from './WeatherDisplayCard.module.css'
+import {connect} from "react-redux";
 
 const getBackground = (weather) => {
     switch(weather) {
@@ -19,14 +20,14 @@ const getBackground = (weather) => {
 const WeatherDisplayCard = props => {
     let day = props.date.toDateString()
     day = day.slice(0, -5)
-    if (props.index == 0) {
+    if (props.index === 0) {
         day = 'Today'
     }
-    if (props.index == 1) {
+    if (props.index === 1) {
         day = 'Tomorrow'
     }
 
-    let bg = ""
+    let bg;
     bg = getBackground(props.weather[0].main)
 
     console.log(props)
@@ -39,10 +40,10 @@ const WeatherDisplayCard = props => {
                 </Card.Header>
                 <Card.Body >
                     <Card.Text className={classes.tempDisplay}>
-                        {Math.round(props.temp.day)} C
+                        {Math.round(props.temp.day)} {props.unit}
                     </Card.Text>
                         <Card.Text className={classes.minMaxDisplay}>
-                            High: {Math.round(props.temp.min)}C Low: {Math.round(props.temp.max)}C
+                            High: {Math.round(props.temp.min)}{props.unit} Low: {Math.round(props.temp.max)}{props.unit}
                         </Card.Text>
                 </Card.Body>
                 <hr />
@@ -54,4 +55,10 @@ const WeatherDisplayCard = props => {
     );
 };
 
-export default WeatherDisplayCard;
+const mapStateToProps = state => {
+    return {
+        unit: state.unit
+    }
+}
+
+export default connect(mapStateToProps)(WeatherDisplayCard);
